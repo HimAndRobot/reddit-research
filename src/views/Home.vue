@@ -24,7 +24,7 @@
                   type="text" 
                   id="topic" 
                   v-model="topic" 
-                  placeholder="What are you looking for?" 
+                  placeholder="What are you lookingfor?" 
                   class="w-full px-4 py-4 bg-transparent border-none text-white placeholder-white/70 focus:outline-none text-lg"
                   required
                 >
@@ -52,7 +52,7 @@
                     v-for="cat in categories" 
                     :key="cat" 
                     @click="selectCategory(cat)"
-                    class="px-4 py-2 rounded-lg text-white hover:bg-white/20 cursor-pointer transition-colors"
+                    class="px-4 py-2 rounded-lg text-white hover:bg-white/20 cursor-pointer transition-colors mt-2"
                     :class="category === cat ? 'bg-white/20' : ''"
                   >
                     {{ getCategoryDisplayName(cat) }}
@@ -74,7 +74,7 @@
                     class="px-4 py-2 rounded-lg text-white hover:bg-white/20 cursor-pointer transition-colors flex items-center"
                     :class="language === code ? 'bg-white/20' : ''"
                   >
-                    <i :class="lang.icon" class="mr-3"></i>
+                    <span class="mr-3">{{ lang.flag }}</span>
                     <span>{{ lang.name }}</span>
                   </div>
                 </div>
@@ -626,11 +626,11 @@ export default {
     
     // Languages with icons
     const languages = reactive({
-      pt: { name: 'Português', icon: 'flag-icon flag-icon-br' },
-      en: { name: 'English', icon: 'flag-icon flag-icon-us' },
-      es: { name: 'Español', icon: 'flag-icon flag-icon-es' },
-      fr: { name: 'Français', icon: 'flag-icon flag-icon-fr' },
-      ja: { name: '日本語', icon: 'flag-icon flag-icon-jp' }
+      pt: { name: 'Português', icon: 'fas fa-globe', flag: '🇧🇷' },
+      en: { name: 'English', icon: 'fas fa-globe', flag: '🇺🇸' },
+      es: { name: 'Español', icon: 'fas fa-globe', flag: '🇪🇸' },
+      fr: { name: 'Français', icon: 'fas fa-globe', flag: '🇫🇷' },
+      ja: { name: '日本語', icon: 'fas fa-globe', flag: '🇯🇵' }
     })
     
     // UI state

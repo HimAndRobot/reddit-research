@@ -9,7 +9,7 @@
   >
     <div v-if="show" class="fixed inset-0 z-50 overflow-y-auto" @click.self="close">
       <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-        <div class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" aria-hidden="true"></div>
+        <div class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" @click="close" aria-hidden="true"></div>
         
         <!-- Modal panel -->
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>

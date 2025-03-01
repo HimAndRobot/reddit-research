@@ -9,7 +9,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "build-and-start": "vue-cli-service build && node index.js"
+    "build-and-start": "vue-cli-service build && node index.js",
+    "watch": "vue-cli-service build --watch",
+    "dev:full": "concurrently \"npm run dev\" \"npm run watch\""
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
@@ -31,6 +33,7 @@
     "eslint-plugin-vue": "^9.32.0",
     "nodemon": "^3.0.1",
     "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.3.3",
+    "concurrently": "^8.2.0"
   }
 }

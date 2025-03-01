@@ -30,13 +30,13 @@ Original user question: "${query}"
 
 Your task:
 1. Translate the question to English (if not already in English) maintaining the EXACT meaning
-2. Reformulate the question into an optimized search query for Reddit
+2. Reformulate the question into an optimized search query for Reddit using ONLY keywords
 3. Identify relevant keywords for the search
 
 Return only a JSON object with the following format:
 {
   "translatedQuery": "The question translated to English",
-  "optimizedQuery": "The optimized query for Reddit search",
+  "optimizedQuery": "keyword1 keyword2 keyword3",
   "keywords": ["keyword1", "keyword2", "keyword3"]
 }
 
@@ -45,11 +45,17 @@ Important:
 - DO NOT add concepts or terms that are not present in the original question
 - Correctly translate idiomatic expressions (e.g., "volta no tempo" = "time travel", not "set in the past")
 - If the query is about "similar to X" or "like X", keep the focus on similarity to X
-- For similarity queries, use terms like "similar to", "like", "similar to X" in the optimized query
-- The optimized query should be concise and use terminology common in relevant communities
-- Remove only unnecessary words like "recommend me", "I want to know", etc.
+- The optimized query should ONLY contain essential keywords separated by spaces (no quotes, no AND/OR operators)
+- Format the optimized query like "keyword1 keyword2 keyword3" - this works best with Reddit's search
+- Remove all unnecessary words like "recommend me", "I want to know", etc.
 - Keep only what's essential for the search
 - Return ONLY the JSON, without additional text
+- Use the official English or Japanese name of the works, do not translate to Portuguese
+- IMPORTANT: Verify that each keyword makes sense in English and is commonly used. For example, "scholar" should be "school" when referring to educational settings
+- Correct any mistranslations or uncommon terms to their proper English equivalents that would be used in Reddit discussions
+- Use the most common search terms that Reddit users would use when discussing these elements
+- If a direct translation creates an uncommon or incorrect term in English, replace it with the proper term that captures the same meaning
+- DO NOT add terms like "anime" or "manga" unless they were specifically mentioned in the original query
 `;
 
     try {
@@ -193,7 +199,7 @@ Create a structured summary in JSON format with the following format reasons in 
       "reasons": [
         "Reason 1 explaining how the work connects to specific elements of the search topic",
         "Reason 2 clearly stating which requested elements are present in this work and which are absent",
-        "Reason 3 summarizing the average opinion from commenters about this recommendation"
+        "Reason 3 summarizing the average opinion from commenters about this recommendation minimum 400 characters"
       ],
       "relevanceScore": 0 to 100 based on the work's relevance to the search topic highlighting the most relevant elements
     },
