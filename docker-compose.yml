@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      args:
+        REDDIT_CLIENT_ID_1: ${REDDIT_CLIENT_ID_1}
+        REDDIT_CLIENT_SECRET_1: ${REDDIT_CLIENT_SECRET_1}
+        REDDIT_CLIENT_ID_2: ${REDDIT_CLIENT_ID_2}
+        REDDIT_CLIENT_SECRET_2: ${REDDIT_CLIENT_SECRET_2}
+        REDDIT_USERNAME: ${REDDIT_USERNAME}
+        REDDIT_PASSWORD: ${REDDIT_PASSWORD}
+        GEMINI_API_KEY: ${GEMINI_API_KEY}
+    ports:
+      - "3000:3000"
+    restart: unless-stopped 

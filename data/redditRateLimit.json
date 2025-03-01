@@ -1,0 +1,10 @@
+{
+  "client1": {
+    "requestCount": 18,
+    "windowStartTime": 1740857702917
+  },
+  "client2": {
+    "requestCount": 0,
+    "windowStartTime": 1740857702917
+  }
+}
